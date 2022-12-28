@@ -71,9 +71,14 @@ class ViewController: UIViewController {
         rollButton.layer.shadowOpacity = 0.35
         rollButton.layer.shadowRadius = 2
         rollButton.layer.shadowOffset = .zero
+        rollButton.addTarget(self, action: #selector(rollButtonPressed), for: .touchUpInside)
     }
-
-
+    
+    @objc func rollButtonPressed(sender: UIButton!) {
+        let arrayDicee = [#imageLiteral(resourceName: "DiceOne"), #imageLiteral(resourceName: "DiceTwo"), #imageLiteral(resourceName: "DiceThree"), #imageLiteral(resourceName: "DiceFour"), #imageLiteral(resourceName: "DiceFive"), #imageLiteral(resourceName: "DiceSix")]
+        diceeOneImageView.image = arrayDicee.randomElement()
+        diceeTwoImageView.image = arrayDicee.randomElement()
+    }
 }
 
 
